@@ -9,4 +9,4 @@ $this->breadcrumbs=array(
 <h1>About</h1>
 
 <p>This is small web application developed using the Yii PHP Framework for the Development of Web Applications 
-course in the Master on Open Sourse Software (MOSS) by ISCTE-IUL.</p>
+course in the Master on Open Source Software (MOSS) by ISCTE-IUL.</p>
