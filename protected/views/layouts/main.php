@@ -51,7 +51,7 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by The MOSS Guys (Diogo, Luis e Rénan).<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by The MOSS Guys (Diogo, Luis and Rénan).<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
