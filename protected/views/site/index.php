@@ -19,4 +19,4 @@ the <a href="http://www.yiiframework.com/doc/">documentation</a>.
 Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p> -->
 
-This is the indes of our WebApp! Enjoy it!
+This is the index of our WebApp! Enjoy it!
