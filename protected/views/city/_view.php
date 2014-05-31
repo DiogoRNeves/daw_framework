@@ -14,7 +14,10 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('country_id')); ?>:</b>
-	<?php echo CHtml::encode($data->country_id); ?>
+	<?php 
+		//$country = Country::model()->findByPk($data->country_id);
+		echo CHtml::link(CHtml::encode($data->country->name),
+                                 array('country/view','id'=>$data->country->id)) ?>
 	<br />
 
 

@@ -23,6 +23,11 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'name',
-		'country_id',
+		array(               // related country displayed as a link
+            'label'=>'Country',
+            'type'=>'raw',
+            'value'=>CHtml::link(CHtml::encode($model->country->name),
+                                 array('country/view','id'=>$model->country->id)),
+        ),
 	),
 )); ?>
