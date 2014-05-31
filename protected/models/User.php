@@ -17,6 +17,9 @@
  */
 class User extends CActiveRecord
 {
+	const WEAK = 0;
+	const STRONG = 1;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -33,17 +36,36 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id', 'unique'),
 			array('id, name, password, email, city_id', 'required'),
+			array('id', 'unique'),
+			array('password', 'passwordStrength', 'strength'=>self::STRONG),
 			array('city_id', 'numerical', 'integerOnly'=>true),
 			array('id', 'length', 'max'=>10),
 			array('name', 'length', 'max'=>50),
 			array('username, password', 'length', 'max'=>45),
 			array('email, site', 'length', 'max'=>150),
+			array('email','email'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('name, username, password, email, site', 'safe', 'on'=>'search'),
 		);
+	}
+
+	/**
+	 * check if the user password is strong enough
+	 * check the password against the pattern requested
+	 * by the strength parameter
+	 * This is the 'passwordStrength' validator as declared in rules().
+	 */
+	public function passwordStrength($attribute,$params)
+	{
+	    if ($params['strength'] === self::WEAK)
+	        $pattern = '/^(?=.*[a-zA-Z0-9]).{5,}$/';  
+	    elseif ($params['strength'] === self::STRONG)
+	        $pattern = '/^(?=.*\d(?=.*\d))(?=.*[a-zA-Z](?=.*[a-zA-Z])).{5,}$/';  
+	 
+	    if(!preg_match($pattern, $this->$attribute))
+	      $this->addError($attribute, 'your password is not strong enough!');
 	}
 
 	/**
