@@ -30,10 +30,11 @@ class Country extends CActiveRecord
 		return array(
 			array('id, name', 'required'),
 			array('id', 'numerical', 'integerOnly'=>true),
+			array('id, name', 'unique'),
 			array('name', 'length', 'max'=>60),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name', 'safe', 'on'=>'search'),
+			array('name', 'safe', 'on'=>'search'),
 		);
 	}
 
