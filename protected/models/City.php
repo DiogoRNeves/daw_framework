@@ -35,7 +35,7 @@ class City extends CActiveRecord
 			array('name', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('name, country_id', 'safe', 'on'=>'search'),
+			array('name', 'safe', 'on'=>'search'),
 		);
 	}
 

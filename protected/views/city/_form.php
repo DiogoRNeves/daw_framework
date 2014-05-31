@@ -33,10 +33,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'country_id'); ?>
-		<?php 
-			$countries = Country::model()->findAll();
-			echo $form->dropDownList($model, 'country_id', CHtml::listData($countries, 'id', 'name')); 
-		?>
+		<?php echo $form->dropDownList($model, 'country_id', 
+				CHtml::listData(Country::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->error($model,'country_id'); ?>
 	</div>
 

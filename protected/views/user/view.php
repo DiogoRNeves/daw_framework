@@ -26,7 +26,17 @@ $this->menu=array(
 		'username',
 		'password',
 		'email',
-		'site',
-		'city_id',
+		array(               // website displayed as a link
+            'label'=>$model->getAttributeLabel('site'),
+            'type'=>'raw',
+            'value'=>CHtml::link($model->site, 
+            	CHtml::encode($model->site), array('target'=>'_blank')),
+        ),
+		array(               // related city displayed as a link
+            'label'=>$model->getAttributeLabel('city_id'),
+            'type'=>'raw',
+            'value'=>CHtml::link(CHtml::encode($model->city->name),
+                                 array('city/view','id'=>$model->city->id)),
+        ),
 	),
 )); ?>

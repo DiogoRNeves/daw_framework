@@ -24,7 +24,7 @@ $this->menu=array(
 		'id',
 		'name',
 		array(               // related country displayed as a link
-            'label'=>'Country',
+            'label'=>$model->getAttributeLabel('country_id'),
             'type'=>'raw',
             'value'=>CHtml::link(CHtml::encode($model->country->name),
                                  array('country/view','id'=>$model->country->id)),
