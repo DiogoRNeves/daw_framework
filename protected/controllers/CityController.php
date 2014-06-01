@@ -15,7 +15,18 @@ class CityController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
+			array(
+				'RestfullYii.filters.ERestFilter + 
+			 	REST.GET'
+			),
 			'postOnly + delete', // we only allow deletion via POST request
+		);
+	}
+
+	public function actions()
+	{
+		return array(
+			'REST.'=>'RestfullYii.actions.ERestActionProvider',
 		);
 	}
 
@@ -27,6 +38,9 @@ class CityController extends Controller
 	public function accessRules()
 	{
 		return array(
+			array('allow', 'actions'=>array('REST.GET'),
+				'users'=>array('*'),
+			),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
