@@ -8,6 +8,9 @@ Yii::setPathOfAlias('RestfullYii',realpath(__DIR__ . '/../extensions/starship/Re
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Our MOSS Web App',
+	'theme'=>'designa',
+	//'theme'=>'memories',
+	//'theme'=>'freshy2',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
